@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2';
+import { getCategoriesDb } from '../actions/categories';
 import {  getFilteredProducts, getProductsDb } from '../actions/products';
 import '../App.css';
 import { ProductContext } from '../context/productContext';
@@ -25,6 +26,26 @@ export const Home = () => {
 
   })
 
+useEffect(() => {
+
+    const getCategories = async () => {
+
+      try {
+
+        const resp = await fetchApi('categories');
+        const data = await resp.json()
+
+        if (resp.ok) {
+          dispatch(getCategoriesDb(data.categories))
+        }
+
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    getCategories()
+  }, [])
 
 
   useEffect(() => {

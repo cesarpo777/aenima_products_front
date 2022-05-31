@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { getCategoriesDb } from '../actions/categories';
 import { createProducts } from '../actions/products';
 import { BtnBack } from '../components/BtnBack';
 import { ProductContext } from '../context/productContext';
@@ -10,10 +11,12 @@ import { fetchApi } from '../helpers/fetch';
 
 export const CreateProduct =() => {
 
+
   const navigate = useNavigate();
   const { state, dispatch } = useContext(ProductContext)
   const { categories } = state;
   
+ 
   
   const [formValues, setFormValues] = useState({
     category: '',
@@ -81,15 +84,15 @@ export const CreateProduct =() => {
       <form onSubmit={handleSubmit} className='d-flex flex-column align-items-center'>
         <h3 className='fw-semibold'>Upload your product</h3>
 
-        <select className='mx-1' name='category' value={formValues.category} onChange={handleInputChange} required>
+        {/* <select className='mx-1' name='category' value={formValues.category} onChange={handleInputChange} required>
           <option value='xx' className='fw-semibold'>Choose category</option>
           {
             categories?.map((c) => (
               <option key={c.uid} value={c.uid}>{c.name}</option>
             ))
           }
-        </select>
-        { formValues.categoryError.length > 0 && <span className='text-danger'>{formValues.categoryError} </span>}
+        </select> */}
+        
         <input
           type='text'
           className='form-control w-50 my-2 fw-semibold'
@@ -99,7 +102,7 @@ export const CreateProduct =() => {
           onChange={handleInputChange}
           
         />
-         { formValues.nameError.length > 0 && <span className='text-danger'>{formValues.nameError} </span>} 
+         
         <input
           type='text'
           className='form-control w-50 text-center my-2 fw-semibold'

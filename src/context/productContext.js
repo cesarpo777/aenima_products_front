@@ -15,29 +15,27 @@ export const ProductProvider = ({ children }) => {
     }
     const [state, dispatch] = useReducer(appReducer, initialState)
 
+    
     useEffect(() => {
 
-        const getCategories = async () => {
-    
-          try {
-    
-            const resp = await fetchApi('categories');
-            const data = await resp.json()
-    
-            if (resp.ok) {
-              dispatch(getCategoriesDb(data.categories))
-            }
-    
-          } catch (error) {
-            console.log(error)
+      const getCategories = async () => {
+  
+        try {
+  
+          const resp = await fetchApi('categories');
+          const data = await resp.json()
+  
+          if (resp.ok) {
+            dispatch(getCategoriesDb(data.categories))
           }
-    
-    
+  
+        } catch (error) {
+          console.log(error)
         }
-    
-        getCategories()
-      }, [])
-
+      }
+  
+      getCategories()
+    }, [])
 
     return (
         <ProductContext.Provider value={{ state, dispatch }}>
