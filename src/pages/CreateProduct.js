@@ -13,16 +13,13 @@ export const CreateProduct =() => {
   const navigate = useNavigate();
   const { state, dispatch } = useContext(ProductContext)
   const { categories } = state;
-  const [vale , setVale ] = useState(false)
+  
   
   const [formValues, setFormValues] = useState({
     category: '',
     name: '',
     price: '',
-    description: '',
-    categoryError:'',
-    nameError: ''
-
+    description: ''
   })
 
   console.log( formValues )
