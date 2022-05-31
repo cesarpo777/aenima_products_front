@@ -84,14 +84,14 @@ export const CreateProduct =() => {
       <form onSubmit={handleSubmit} className='d-flex flex-column align-items-center'>
         <h3 className='fw-semibold'>Upload your product</h3>
 
-        {/* <select className='mx-1' name='category' value={formValues.category} onChange={handleInputChange} required>
+        <select className='mx-1' name='category' value={formValues.category} onChange={handleInputChange} required>
           <option value='xx' className='fw-semibold'>Choose category</option>
           {
             categories?.map((c) => (
               <option key={c.uid} value={c.uid}>{c.name}</option>
             ))
           }
-        </select> */}
+        </select>
         
         <input
           type='text'
