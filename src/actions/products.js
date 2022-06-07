@@ -8,28 +8,6 @@ export const getProductsDb = (products) =>{
     }
 }
 
-export const getProducts = () => {
-    return{
-        type: 'GET_PRODUCTS'
-    }
-
-}
-
-
-export const createProducts = (newProduct) => {
-    return{
-        type: 'ADD_PRODUCT',
-        payload: newProduct
-    }
-}
-
-export const deleteProduct = (id) => {
-    return{
-        type: 'DELETE_PRODUCT',
-        payload: id
-    }
-}
-
 
 
 export const getFilteredProducts = (filteredProducts) => {

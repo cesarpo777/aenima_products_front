@@ -53,8 +53,6 @@ export const EditProduct = () => {
       const data = await resp.json();
       console.log( data )
 
-      //dispatch(getProductsDb(data.products))
-    
       Swal.fire({
         position: 'top-end',
         icon: 'success',

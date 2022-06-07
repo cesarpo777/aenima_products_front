@@ -18,3 +18,16 @@ export const fetchApi = ( endpoint, data ,method ='GET' ) =>{
     }
 
 }
+
+
+export const fetchFormData = ( endpoint, data, method ) => {
+
+    let baseurl = process.env.REACT_APP_API_URL;
+    let url = `${baseurl}/${endpoint}`
+
+    return fetch( url, {
+        method,
+        body: data
+    })
+
+}

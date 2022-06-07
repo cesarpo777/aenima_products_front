@@ -22,18 +22,6 @@ export const appReducer = ( state = initialState, action ) => {
                 products: action.payload 
             }
 
-        case 'ADD_PRODUCT':
-            return {
-                ...state,
-                products:[...state.products, action.payload ]
-            }
-        
-        case 'DELETE_PRODUCT':
-            return {
-                ...state,
-                products: state.products.filter( p => p.id !== action.payload.id )
-            }
-        
         case 'GET_CATEGORIES':
             return{
                 ...state,
